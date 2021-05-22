@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Rock Paper Scissors</h1>
+      <section>
+        <div class="start">
+          <h3>How Many Rounds?</h3>
+          <div class="show-rounds">
+            <span class="count-rounds"></span>
+            <p>/</p>
+            <span class="all-rounds"></span>
+          </div>
+          <form class="form">
+            <div class="rounds">
+              <div>
+                <input
+                  class="start-round"
+                  type="radio"
+                  id="rounds5"
+                  value="5"
+                  name="rounds"
+                  checked
+                />
+                <label for="rounds5">5</label>
+              </div>
+              <div>
+                <input type="radio" id="rounds10" name="rounds" value="10" />
+                <label for="rounds10">10</label>
+              </div>
+            </div>
+            <div class="rounds">
+              <div>
+                <input type="radio" id="rounds15" name="rounds" value="15" />
+                <label for="rounds15">15</label>
+              </div>
+              <div>
+                <input type="radio" id="rounds20" name="rounds" value="20" />
+                <label for="rounds20">20</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="enter-name">
+          <input class="input-name" type="text" placeholder="Enter name" />
+        </div>
+        <div class="result">
+          <div class="user">user</div>
+          <div class="comp">comp</div>
+          <span class="user-score">0</span>
+          <p class="res">:</p>
+          <span class="comp-score">0</span>
+        </div>
+
+        <h2 class="lets-play">Let's play</h2>
+        <div class="hands">
+          <img
+            class="hand"
+            src="./assets/img/icons8-ganze-hand-80.png"
+            alt="hand"
+          />
+          <img
+            class="felsen"
+            src="./assets/img/icons8-hand_-felsen-50.png"
+            alt="felsen"
+          />
+          <img
+            class="schere"
+            src="./assets/img/icons8-hand_-schere-50.png"
+            alt="schere"
+          />
+        </div>
+        <h3>MAKE YOUR MOVE</h3>
+        <div class="restart">restart</div>
+      </section>
+    </main>
+    <script src="./assets/js/main.js" defer></script>
+  </body>
+</html>

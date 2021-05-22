@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid grey;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 7vh;
+}
+
+h3 {
+  text-align: center;
+}
+
+.start {
+  width: 400px;
+  margin: 0 auto;
+  border: 2px solid white;
+  padding: 2rem;
+}
+
+.show-rounds span {
+  display: inline-block;
+  width: 45%;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+.show-rounds span:nth-of-type(1) {
+  text-align: right;
+}
+.show-rounds p {
+  margin: 0;
+  display: inline-block;
+  font-size: 4rem;
+}
+
+.show-rounds {
+  display: none;
+}
+
+.rounds {
+  display: flex;
+}
+
+.rounds div {
+  width: 50%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.result {
+  width: 400px;
+  border: 2px solid white;
+  margin: 50px auto 0 auto;
+  position: relative;
+}
+
+.user,
+.comp {
+  width: 50px;
+  background-color: red;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.user {
+  right: 370px;
+  background-color: green;
+}
+.user-score {
+  color: green;
+  font-weight: bold;
+}
+.comp {
+  left: 370px;
+}
+.comp-score {
+  color: red;
+  font-weight: bold;
+}
+.result span {
+  display: inline-block;
+  width: 47%;
+  font-size: 4rem;
+}
+
+.result span:nth-of-type(1) {
+  text-align: right;
+}
+
+.res {
+  display: inline-block;
+  font-size: 4rem;
+  text-align: center;
+  margin: 0;
+}
+.hands {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.hands img {
+  border: 2px solid white;
+  border-radius: 50%;
+  display: inline-block;
+  width: 60px;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.restart {
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid white;
+  width: 50px;
+  margin: 3rem auto 0 auto;
+  border-radius: 50%;
+  transition: all 0.3s linear;
+}
+
+.restart:hover {
+  color: black;
+  background-color: white;
+}
+
+.enter-name {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.input-name {
+  text-align: center;
+  border-radius: 10px;
+  padding: 1rem;
+}
