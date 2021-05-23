@@ -51,9 +51,7 @@ function countPlay(el) {
 }
 
 function calcWiner(userInput, computerInput, el) {
-  let { style } = el.target;
   let inp = userInput + computerInput;
-  let letsPlay = $('.lets-play');
 
   let userWinComb = ['handfelsen', 'felsenschere', 'scherehand'];
   let compWinComb = ['handschere', 'felsenhand', 'scherefelsen'];
@@ -63,8 +61,7 @@ function calcWiner(userInput, computerInput, el) {
   } else if (compWinComb.some((el) => el == inp)) {
     return compRoundMessage(userInput, computerInput, el);
   } else {
-    letsPlay.innerHTML = `${inputName}: ${userInput}, Comp:${computerInput} Draw!`;
-    style.border = '2px solid grey';
+    drawRoundMessage(userInput, computerInput, el);
   }
 }
 
@@ -86,6 +83,13 @@ function compRoundMessage(user, comp, el) {
   compScore++;
   $('.comp-score').innerHTML = compScore;
   style.border = '2px solid red';
+}
+
+function drawRoundMessage(user, comp, el) {
+  let letsPlay = $('.lets-play');
+  let { style } = el.target;
+  letsPlay.innerHTML = `${inputName}: ${user}, Comp:${comp} Draw!`;
+  style.border = '2px solid grey';
 }
 
 //SHOW-HIDE NUM OF ROUNDS:
@@ -125,7 +129,9 @@ $on($$('img'), 'mousedown', (el) => {
 });
 
 $on($$('img'), 'mouseup', (el) => {
-  el.target.style.border = '2px solid white';
+  setTimeout(() => {
+    el.target.style.border = '2px solid white';
+  }, 300);
 });
 
 //BONUS:
