@@ -15,7 +15,6 @@ let rounds = 5,
   compScore = 0,
   inputName = 'User';
 
-console.log(rounds);
 //SET HOW MANY ROUNDS:
 
 (function setNumRounds() {
