@@ -16,6 +16,10 @@ let game = {
   compScore: 0,
   inputName: 'User',
 };
+
+let gameRestart = {
+  ...game,
+};
 //SET HOW MANY ROUNDS:
 
 (function setNumRounds() {
@@ -109,11 +113,8 @@ function setRounds() {
 //RESTART:
 
 function restart() {
-  game.userScore = 0;
-  game.compScore = 0;
-  game.roundsCounter = 0;
-  game.rounds = 5;
-  game.inputName = 'User';
+  game = { ...gameRestart };
+
   $('.start-round').checked = true;
   $('.user-score').innerHTML = 0;
   $('.comp-score').innerHTML = 0;
