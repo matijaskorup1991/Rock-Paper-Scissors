@@ -9,17 +9,18 @@ let $on = (el, ev, fn) =>
     ? el.forEach((o) => $on(o, ev, fn))
     : el.addEventListener(ev, fn);
 
-let rounds = 5,
-  roundsCounter = 0,
-  userScore = 0,
-  compScore = 0,
-  inputName = 'User';
-
+let game = {
+  rounds: 5,
+  roundsCounter: 0,
+  userScore: 0,
+  compScore: 0,
+  inputName: 'User',
+};
 //SET HOW MANY ROUNDS:
 
 (function setNumRounds() {
   $on($$('input[type="radio"]'), 'click', (el) => {
-    rounds = el.target.value * 1;
+    game.rounds = el.target.value * 1;
   });
 })();
 
@@ -34,16 +35,16 @@ function compIndex() {
 //FIND WINNER:
 
 function countPlay(el) {
-  if (roundsCounter < rounds) {
+  if (game.roundsCounter < game.rounds) {
     calcWiner(el.target.className, compIndex(), el);
-    roundsCounter++;
+    game.roundsCounter++;
   }
-  if (roundsCounter === rounds) {
+  if (game.roundsCounter === game.rounds) {
     setTimeout(() => {
       $('.lets-play').innerHTML =
-        userScore > compScore
-          ? `${inputName.toUpperCase()} wins!`
-          : userScore < compScore
+        game.userScore > game.compScore
+          ? `${game.inputName.toUpperCase()} wins!`
+          : game.userScore < game.compScore
           ? 'COMP wins!'
           : 'DRAW!';
     }, 1500);
@@ -70,25 +71,29 @@ function calcWiner(userInput, computerInput, el) {
 function userRoundMessage(user, comp, el) {
   let { style } = el.target;
   let letsPlay = $('.lets-play');
-  letsPlay.innerHTML = `${user.toUpperCase()} (${inputName}) beats ${comp.toUpperCase()} (comp) ${inputName} Wins!`;
-  userScore++;
-  $('.user-score').innerHTML = userScore;
+  letsPlay.innerHTML = `${user.toUpperCase()} (${
+    game.inputName
+  }) beats ${comp.toUpperCase()} (comp) ${game.inputName} Wins!`;
+  game.userScore++;
+  $('.user-score').innerHTML = game.userScore;
   style.border = '2px solid green';
 }
 
 function compRoundMessage(user, comp, el) {
   let { style } = el.target;
   let letsPlay = $('.lets-play');
-  letsPlay.innerHTML = `${comp.toUpperCase()} (comp) beats ${user.toUpperCase()} (${inputName}) Comp Wins!`;
-  compScore++;
-  $('.comp-score').innerHTML = compScore;
+  letsPlay.innerHTML = `${comp.toUpperCase()} (comp) beats ${user.toUpperCase()} (${
+    game.inputName
+  }) Comp Wins!`;
+  game.compScore++;
+  $('.comp-score').innerHTML = game.compScore;
   style.border = '2px solid red';
 }
 
 function drawRoundMessage(user, comp, el) {
   let letsPlay = $('.lets-play');
   let { style } = el.target;
-  letsPlay.innerHTML = `${inputName}: ${user}, Comp:${comp} Draw!`;
+  letsPlay.innerHTML = `${game.inputName}: ${user}, Comp:${comp} Draw!`;
   style.border = '2px solid grey';
 }
 
@@ -97,22 +102,22 @@ function drawRoundMessage(user, comp, el) {
 function setRounds() {
   $('.form').style.display = 'none';
   $('.show-rounds').style.display = 'block';
-  $('.all-rounds').innerHTML = rounds;
-  $('.count-rounds').innerHTML = roundsCounter;
+  $('.all-rounds').innerHTML = game.rounds;
+  $('.count-rounds').innerHTML = game.roundsCounter;
 }
 
 //RESTART:
 
 function restart() {
-  userScore = 0;
-  compScore = 0;
-  roundsCounter = 0;
-  rounds = 5;
-  inputName = 'User';
+  game.userScore = 0;
+  game.compScore = 0;
+  game.roundsCounter = 0;
+  game.rounds = 5;
+  game.inputName = 'User';
   $('.start-round').checked = true;
   $('.user-score').innerHTML = 0;
   $('.comp-score').innerHTML = 0;
-  $('.user').innerHTML = inputName;
+  $('.user').innerHTML = game.inputName;
   $('.input-name').value = '';
   $('.form').style.display = 'block';
   $('.show-rounds').style.display = 'none';
@@ -137,5 +142,5 @@ $on($$('img'), 'mouseup', (el) => {
 //BONUS:
 $on($('.input-name'), 'keyup', (e) => {
   $('.user').innerHTML = e.target.value;
-  inputName = e.target.value;
+  game.inputName = e.target.value;
 });
