@@ -17,9 +17,6 @@ let game = {
   inputName: 'User',
 };
 
-let gameRestart = {
-  ...game,
-};
 //SET HOW MANY ROUNDS:
 
 (function setNumRounds() {
@@ -113,16 +110,7 @@ function setRounds() {
 //RESTART:
 
 function restart() {
-  game = { ...gameRestart };
-
-  $('.start-round').checked = true;
-  $('.user-score').innerHTML = 0;
-  $('.comp-score').innerHTML = 0;
-  $('.user').innerHTML = game.inputName;
-  $('.input-name').value = '';
-  $('.form').style.display = 'block';
-  $('.show-rounds').style.display = 'none';
-  $('.lets-play').innerHTML = "Let's Play";
+  window.location.reload();
 }
 
 $on($('.restart'), 'click', restart);
